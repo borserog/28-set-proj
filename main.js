@@ -40,12 +40,13 @@
       0.1,
       1000
     );
-    camera.position.z = 35;
+    camera.position.z = 39;
     camera.position.x = -2;
     camera.position.y = 1;
 
     const listener = new THREE.AudioListener();
     const audio = new THREE.Audio(listener);
+    audio.autoplay = true;
     const file = "./assets/epicsaxguy.mp3";
 
     const audioloader = new THREE.AudioLoader();
@@ -80,7 +81,7 @@
 
     const texture = new THREE.TextureLoader().load("./assets/floor1.png");
     // Floor
-    let floorGeometry = new THREE.PlaneGeometry(50, 20, 1, 1);
+    let floorGeometry = new THREE.PlaneGeometry(60, 28, 1, 1);
     let floorMaterial = new THREE.MeshPhongMaterial({
       color: 0xeeeeee,
       shininess: 0,
@@ -100,7 +101,7 @@
 
     retsuko_txt.flipY = false; // we flip the texture so that its the right way up
 
-    const stacy_mtl = new THREE.MeshPhongMaterial({
+    const retsuko_mtl = new THREE.MeshPhongMaterial({
       map: retsuko_txt,
       color: 0xffffff,
       // critical to animated models
@@ -114,7 +115,6 @@
       function (gltf) {
         model = gltf.scene;
         let fileAnimations = gltf.animations;
-        console.log(fileAnimations);
 
         model.traverse((o) => {
           if (o.isMesh) {
@@ -122,7 +122,7 @@
             o.castShadow = true;
             o.receiveShadow = true;
 
-            o.material = stacy_mtl;
+            o.material = retsuko_mtl;
           }
         });
         // Set the models initial scale
