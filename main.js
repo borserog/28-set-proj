@@ -40,7 +40,7 @@
       0.1,
       1000
     );
-    camera.position.z = 30;
+    camera.position.z = 35;
     camera.position.x = -2;
     camera.position.y = 1;
 
