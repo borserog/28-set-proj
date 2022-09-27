@@ -19,7 +19,7 @@
     // Init the scene
     scene = new THREE.Scene();
     const bgImage = new THREE.TextureLoader().load(
-      "./assets/model/louvre-coronavirus-1.webp"
+      "./assets/model/dame.png"
     );
     scene.background = bgImage;
 
